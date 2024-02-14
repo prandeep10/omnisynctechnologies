@@ -1,0 +1,260 @@
+.tv-container{
+    position: absolute;
+    bottom: 270px;
+    right: 500px;
+}
+.television{
+    position: relative;
+    height: 230px;
+    width: 350px;
+    border: 20px  solid #4a4a4a;
+    border-right: 30px  solid #4a4a4a;
+    border-left: 30px  solid #4a4a4a;
+    border-bottom: 60px solid #4a4a4a;
+    border-radius: 5px;
+  }
+  .on{
+    position: absolute;
+    color: red;
+    bottom: -1.5em;
+    right: 0px;
+  }
+  .stand {
+    height: 20px;
+    width: 200%;
+    position: absolute;
+    left: -50%;
+    bottom:-80px;
+    background-color: #8b4513;
+    border-bottom: 2px solid #722C00;
+  }
+  .base {
+    height: 200px;
+    width: 180%;
+    position: absolute;
+    left: -40%;
+    bottom:-280px;
+    background-color: #8b4513;
+  }
+  .doors {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  .door {
+    position: relative;
+    width:40%;
+    height: 90%;
+    margin: 10px 0;
+    display: inline-block;
+    border: 2px solid #722C00;
+    box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+  }
+  .knob-left {
+    width: 20px;
+      height: 20px;
+    position: absolute;
+    top: 50%; right: 5px;
+      background: #722C00;
+      -moz-border-radius: 50px;
+      -webkit-border-radius: 50px;
+      border-radius: 50px;
+  }
+  .knob-right {
+    width: 20px;
+      height: 20px;
+    position: absolute;
+    top: 50%; left: 5px;
+      background: #722C00;
+      -moz-border-radius: 50px;
+      -webkit-border-radius: 50px;
+      border-radius: 50px;
+  }
+  .pane1{
+    width:100%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 -2px 0 #FDF5B7;
+    background: #000;
+    z-index: 1;
+  }
+  
+  .pane2{
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: inset 2px 0 0 #FDF5B7;
+    background: #000;
+    z-index: 2;
+  }
+  .pane3{
+    width:100%;
+    height: 0%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    box-shadow: inset 0 2px 0 0 #FDF5B7;
+    background: #000;
+    z-index: 3;
+  }
+  .pane3 div {
+    height: 0px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-image: url('https://media.giphy.com/media/2v5qyyUblGJQk/giphy.gif');
+    }
+  .pane4{
+    width: 0%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset -2px 0 0 #FDF5B7;
+    background: #000;
+    z-index: 4;
+  }
+  
+  .television .pane1{
+    animation: slide-pane1 4.5s infinite;
+    -webkit-animation-timing-function: linear; /* Safari 4.0 - 8.0 */
+    animation-timing-function: linear;
+  }
+  .television .pane2{
+    animation: slide-pane2 4.5s infinite;
+    -webkit-animation-timing-function: linear; /* Safari 4.0 - 8.0 */
+    animation-timing-function: linear;
+  }
+  .television .pane3{
+    animation: slide-pane3 4.5s infinite;
+    -webkit-animation-timing-function: linear; /* Safari 4.0 - 8.0 */
+    animation-timing-function: linear;
+  }
+  .television .pane4{
+    animation: slide-pane4 4.5s infinite;
+    -webkit-animation-timing-function: linear; /* Safari 4.0 - 8.0 */
+    animation-timing-function: linear;
+  }
+  .television .pane3 div {
+    animation: pane-reveal 4.5s infinite;
+    -webkit-animation-timing-function: linear; /* Safari 4.0 - 8.0 */
+    animation-timing-function: linear;
+  }
+  
+  @keyframes slide-pane1 {
+    0% {
+      width:100%;
+      height: 50%;
+      z-index: 1;
+    }
+    24.99% {
+      z-index:1;
+    }
+    25%, 35% {
+      width:100%;
+      height: 0%;
+      z-index: 3;
+    }
+    85% {
+      height: 40%;
+    }
+    90%, 100% {
+      width:100%;
+      height: 50%;
+      z-index: 3;
+    }
+  }
+  
+  @keyframes slide-pane2 {
+    0% {
+      width: 0%;
+      height: 100%;
+    }
+    25%, 35% {
+      width: 50%;
+      height: 100%;
+    }
+    85% {
+      width: 40%;
+    }
+    90%, 100% {
+      width: 0%;
+      height: 100%;
+    }
+  }
+  
+  @keyframes slide-pane3 {
+    0% {
+      width:100%;
+      height: 50%;
+      z-index: 3;
+    }
+    24.99% {
+      z-index: 3;
+    }
+    25%,35% {
+      width:100%;
+      height: 0%;
+      z-index: 1;
+    }
+    85% {
+      height: 40%;
+    }
+    90%, 100% {
+      width:100%;
+      height: 50%;
+      z-index: 1;
+    }
+  }
+  
+  @keyframes slide-pane4 {
+    0% {
+      width:0%;
+      height: 50%;
+      bottom: 0;
+      top: unset;
+    }
+    24.99%{
+      bottom: 0;
+      top: unset;
+    }
+    25%,35% {
+      width:50%;
+      height: 100%;
+      top: 0;
+      bottom: unset;
+    }
+    85% {
+      height: 60%;
+      width: 40%;
+    }
+    90%, 100% {
+      width:0%;
+      height: 50%;
+      top: 0;
+      botton: unset;
+    }
+  }
+  @keyframes pane-reveal {
+    0% {
+      height :0px;
+    }
+    24.99% {
+      height: 0px;
+    }
+    25% {
+      height: calc( 100% - 2px);
+      margin-top: 2px;
+    }
+    90%, 100% {
+      height: calc( 100% - 2px);
+      margin-top: 2px;
+    }
+  }

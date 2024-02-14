@@ -1,0 +1,17 @@
+.floor{
+    position: absolute;
+    bottom: 0px;
+    background: gray;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floor .tile{
+    width: 400px;
+    background: gray;
+    border: 1px solid black;
+    height: 50px;
+}

@@ -1,0 +1,42 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 3px 4px 3px rgba(128, 128, 128, 0.148);
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li{
+    padding: 10px;
+    letter-spacing: 4px;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.menu li:hover{
+    background: yellow;
+}
+
+.contact-button{
+    padding: 10px 20px 10px 20px;
+    border: none;
+    background: gray;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.contact-button:hover{
+    background: yellow;
+    color: rgb(5, 5, 5);
+}
+
+.logo{
+    font-size: 25px;
+}

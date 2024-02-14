@@ -1,0 +1,107 @@
+.aquarium-container{
+  position: absolute;
+  bottom: 170px;
+  left: 200px;
+}
+.aquarium-table {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;  
+  }
+
+  .table{
+    height: 150px;
+    width: 350px;
+  }
+ 
+  .aquarium {
+    width: 300px;
+    height: 150px;
+    background-color: #008080; /* Dark cyan */
+    border-radius: 20px;
+    overflow: hidden; /* Hide overflow */
+  }
+  
+  .water {
+    width: 100%;
+    height: 100%;
+    background-color: #add8e6; /* Light blue */
+    position: relative;
+  }
+  
+  .fish {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    animation: swim 9s infinite linear;
+  }
+  
+  .fish img {
+    width: 70px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .bubble {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: bubble 5s infinite alternate ease-in-out;
+  }
+  
+  .bubble1 {
+    width: 20px;
+    height: 20px;
+    top: 20%;
+    left: 10%;
+  }
+  
+  .bubble2 {
+    width: 15px;
+    height: 15px;
+    top: 40%;
+    left: 60%;
+  }
+  
+  .bubble3 {
+    width: 25px;
+    height: 25px;
+    top: 80%;
+    left: 80%;
+  }
+  
+  @keyframes swim {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes bubble {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+  
+
+
+  .feeder {
+    position: fixed;
+    left: 70px;
+    bottom: 140px;
+    width: 190px;
+    height: 190px;
+    z-index: 10;
+  }
+

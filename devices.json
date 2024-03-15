@@ -1,0 +1,6 @@
+{
+  "Light": true,
+  "Fan": true,
+  "Tv": false,
+  "LED": false
+}

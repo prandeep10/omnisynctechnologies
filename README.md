@@ -1,1 +1,1 @@
-## remote and server for home-automation-system
+## remote and server for home-automation-system esp8266

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Control</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+
+        h1{
+            font-size:25px;
+        }
+        .remote {
+            text-align: center;
+        }
+        .device-button {
+            font-size: 24px;
+            padding: 10px;
+            width: 150px;
+            height:100px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            color: #fff;
+            background-color: #222;
+            box-shadow: 0 0 10px #00fefb;
+        }
+        .device-button:hover {
+            background-color: #00fefb;
+            box-shadow: 0 0 20px #00fefb;
+        }
+
+    </style>
+</head>
+<body> 
+    <div class="remote">
+        <h1 style="color: #00fefb;">OmniSync Remote</h1>
+        <button class="device-button" id="lightButton"><i class="fas fa-lightbulb"></i> Light</button>
+        <button class="device-button" id="fanButton"><i class="fas fa-fan"></i> Fan</button>
+        <button class="device-button" id="tvButton"><i class="fas fa-tv"></i> TV</button>
+        <button class="device-button" id="ledButton"><i class="fas fa-lightbulb"></i> LED</button>
+    </div>
+
+    <script>
+        // Function to send PUT request to update device status
+        function updateDeviceStatus(device, status) {
+            fetch(`http://192.168.43.125:3001/api/devices/${device}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status: status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                updateButtonColor(device, status);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Function to update button color based on device status
+        function updateButtonColor(device, status) {
+            const button = document.getElementById(`${device.toLowerCase()}Button`);
+            if (status) {
+                button.style.backgroundColor = '#00fefb';
+                button.style.boxShadow = '0 0 20px rgba(0, 0, 255, 0.8)';
+            } else {
+                button.style.backgroundColor = '#222';
+                button.style.boxShadow = '0 0 10px rgba(0, 0, 255, 0.5)';
+            }
+        }
+
+        // Event listeners for buttons
+        document.getElementById('lightButton').addEventListener('click', function() {
+            const status = this.getAttribute('data-status') === 'true' ? false : true;
+            this.setAttribute('data-status', status);
+            updateDeviceStatus('Light', status);
+        });
+
+        document.getElementById('fanButton').addEventListener('click', function() {
+            const status = this.getAttribute('data-status') === 'true' ? false : true;
+            this.setAttribute('data-status', status);
+            updateDeviceStatus('Fan', status);
+        });
+
+        document.getElementById('tvButton').addEventListener('click', function() {
+            const status = this.getAttribute('data-status') === 'true' ? false : true;
+            this.setAttribute('data-status', status);
+            updateDeviceStatus('Tv', status);
+        });
+
+        document.getElementById('ledButton').addEventListener('click', function() {
+            const status = this.getAttribute('data-status') === 'true' ? false : true;
+            this.setAttribute('data-status', status);
+            updateDeviceStatus('LED', status);
+        });
+    </script>
+</body>
+</html>

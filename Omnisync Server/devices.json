@@ -1,6 +1,6 @@
 {
   "Light": true,
-  "Fan": true,
+  "Fan": false,
   "Tv": false,
   "LED": false
 }
